@@ -6,7 +6,6 @@ pipeline {
             steps {
                 script {
                     sh 'g++ -o PES1UG22CS439-1 main/hello.cpp'
-
                 }
             }
         }
@@ -22,15 +21,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-            		echo 'Deploying...'
-		 }
+                    error 'Deployment failed intentionally'
+                }
             }
         }
     }
     
     post {
         failure {
-            echo 'pipeline failed'
+            echo 'Pipeline failed due to a deployment error'
         }
     }
 }
